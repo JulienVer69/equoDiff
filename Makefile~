@@ -1,0 +1,18 @@
+cc=g++
+CFLAGS=-W -Wall -ansi -pedantic
+LDFLAGS=
+
+addProg : essai.o main.o
+	$(cc) -o addPro essai.o main.o  $(CFLAGS)
+
+essai.o : essai.cpp 
+	$(cc) -o essai.o -c essai.cpp $(CFLAGS)
+
+main.o : main.cpp essai.h
+	$(cc) -o main.o -c main.cpp $(CFLAGS)
+
+clean :
+	rm -rf *.o
+
+mrproper :
+	rm -rf $(EXEC)
